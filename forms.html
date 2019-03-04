@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset='UTF-8'>
+            <link rel='stylesheet' type='text/css' href='styles2.css'> 
+            <title>Opossum Forms</title>
+        </head>
+        <body>
+            <div id='top-bar'>
+                <ul id='top-nav-bar'>
+                    <li class='top-nav-bar-link'><a href='home.html'>Home</a></li>
+                    <li class='top-nav-bar-link'><a id='selected' ref='forms.html'>Questionnaires</a></li>
+                    <li class='top-nav-bar-link'><a href='opossumInfo.html'>About</a></li>
+                    <li class='top-nav-bar-link'><a href='socialOpossums.html'>Media</a></li>
+                    <li class='top-nav-bar-link'><a href='moreResources.html'>Other Resources</a></li>
+                </ul>
+            </div>
+            <div id=left-col>
+            </div>
+                <div id='main-div'>
+                    <div class='titleImg'>
+                        <img class='title' src='images/title.png'>
+                    </div>
+                <div class='form'>
+                    <form id='questionnaire' action='http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php' method='get' target='_blank'>
+                        <fieldset>
+                            <legend><h2>We Appreciate Your Feedback</h2></legend>
+                                <input type='text' placeholder='Name' name='name' maxlength='40' required>
+                                <input type='email' placeholder='Email*' name='email'><br><br>
+                            <label class='question'>How would you rate your overall feelings about opossums prior to visiting this site?<br>
+                                <label><input type='radio' name='opinionBefore' value=-2 required>Dislike strongly</label><br>
+                                <label><input type='radio' name='opinionBefore' value=-1>Dislike moderately</label><br>
+                                <label><input type='radio' name='opinionBefore' value=0>No opnion/Neutral</label><br>
+                                <label><input type='radio' name='opinionBefore' value=1>Like moderately</label><br>
+                                <label><input type='radio' name='opinionBefore' value=2>Like strongly</label></label><br><br>
+                            <label class='question'>How would you rate your overall feelings about opossums after visiting this site?<br>
+                                <label><input type='radio' name='opinionAfter' value=-2 required>Dislike strongly</label><br>
+                                <label><input type='radio' name='opinionAfter' value=-1>Dislike moderately</label><br>
+                                <label><input type='radio' name='opinionAfter' value=0>No opnion/Neutral</label><br>
+                                <label><input type='radio' name='opinionAfter' value=1>Like moderately</label><br>
+                                <label><input type='radio' name='opinionAfter' value=2>Like strongly</label></label><br><br>
+                            Comments*<br>
+                            <textarea id='comments' class='question' name='comments'></textarea><br>
+                            <input type='submit' id='questionnaireSubmit'><br><br>
+                            *optional
+                        </fieldset>
+                    </form>
+                </div>
+                <div class = 'form'>
+                    <form id='quiz'>
+                        <fieldset>
+                            <legend><h2>Test Your Opossum Knowledge</h2></legend>
+                            <label class='question'>How long have opossums existed as a species?<br>
+                                <label><input type='radio' name='howLong' value='0' required>20 thousand years</label><br>
+                                <label><input type='radio' name='howLong' value='0'>20 million years</label><br>
+                                <label><input type='radio' name='howLong' value='0'>10 million years</label><br>
+                                <label><input type='radio' name='howLong' value='1'>70 million years</label><br>
+                                <label><input type='radio' name='howLong' value='0'>100 million years</label><br>
+                            </label><br>
+                            <label class='question'>About how many ticks does a single opossum eat in a week?<br>
+                                <label><input type='radio' name='ticks' value='0' required>13</label><br>
+                                <label><input type='radio' name='ticks' value='0'>50</label><br>
+                                <label><input type='radio' name='ticks' value='0'>200</label><br>
+                                <label><input type='radio' name='ticks' value='0'>750</label><br>
+                                <label><input type='radio' name='ticks' value='1'>1000+</label><br>
+                            </label><br>
+                            <label class='question'>What should I do if I see an opossum?<br>
+                                <label><input type='radio' name='whatTodo' value='0' required>Kill it</label><br>
+                                <label><input type='radio' name='whatTodo' value='1'>Appreciate it at a distance and leave it alone</label><br>
+                                <label><input type='radio' name='whatTodo' value='0'>Try to scare it away</label><br>
+                                <label><input type='radio' name='whatTodo' value='0'>Try to make it play dead</label><br>
+                                <label><input type='radio' name='whatTodo' value='0'>Try to hold it and pet it</label><br>
+                            </label><br>
+                            <label class='question'>Which diseases might an opossum carry? (Check all that apply)<br>
+                                <label><input type='checkbox' name='diseases' value='1'>Tubercuosis</label><br>
+                                <label><input type='checkbox' name='diseases' value='0'>Rabies</label><br>
+                                <label><input type='checkbox' name='diseases' value='0'>The Flu</label><br>
+                                <label><input type='checkbox' name='diseases' value='1'>Leptispirosis</label><br>
+                                <label><input type='checkbox' name='diseases' value='0'>Leopracy</label><br>
+                            </label><br>
+                            <input type='submit' id='quizSubmit'>
+                        </fieldset>
+                    </form>
+                </div>
+                <div>
+                    <p id=quizResults></p>
+                </div>
+            </div>
+            <div id='right-col'>
+            </div>
+        <script src='forms.js'></script>
+        </body>
+    </html>

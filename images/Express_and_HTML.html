@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- saved from url=(0092)http://eecs.oregonstate.edu/ecampus-video/CS290/core-content/sessions-http/express-http.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Express and HTTP</title>
+  <link rel="stylesheet" href="./Express_and_HTML_files/bootstrap.min.css">
+  <link rel="stylesheet" href="./Express_and_HTML_files/cs290-style.css">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-9 col-offset-2">
+      <h1>Express and HTTP</h1>
+      <section>
+        <h2>Intro</h2>
+        <p>We are going to discuss server side HTTP calls in this section. Node.js has very robust http and https modules built in which are very powerful. However, with great power comes great <strike>responsibility</strike> complexity. If you want to learn and use the Node HTTP modules I would highly encourage it as it will be more versatile than the request library we will use in this section. That said it will also take about two or three times as much code to produce the same result.</p>
+      </section>
+      <section>
+        <h2>Why Make Server Side HTTP Calls?</h2>
+        <p>One might wonder why we would be interested in making calls from the server instead of using Ajax from the client. There are a few reasons for this.</p>
+        <p>The first is security. We discussed API keys back in previous weeks. Most APIs require you to have some sort of special key to use it. Well, we often don't want our users to know the key to access a service (because then they could steal it and potentially bill us for API services). So instead of letting the client make the HTTP calls, our server makes it for them and then returns the data to them. This lets us control things like the frequency with which our users can use services and maybe lets us display ads to the users so we can actually make a profit with out web service.</p>
+        <p>The next is for the clients safety. A lot of you have maybe already run into errors talking about CORS. This is a somewhat complex security topic but I will try to give a brief overview here.</p>
+        <h3>Same Origin Policy and Cross Origin Resource Sharing</h3>
+        <p>These two security concepts are quite closely related. The Same Origin Policy or SOP, says that a script from one domain cannot be used to access data from another domain. This is built into browsers as a security feature.</p>
+        <p>There are <em>a lot</em> of ways you can end up running a script you don't intend to. You could have installed a browser plug-in that runs scripts on pages you visit to block ads. A user could maliciously inject script into a page that was not properly secured. The same origin policy helps prevent <em>some</em> of these attacks. For example a common way to display advertising is via an <code>iframe</code>. This HTML elements lets you embed one page inside another. So you can embed an advertisers ad within your page. But if that advertiser were malicious they might include JavaScript in their page that would try to read your password when you logged into a site. The SOP says that because the JavaScript came from the advertisers domain (Ex. http://i-am-an-adverser.com) it can't read data on your domain (Ex. http://www.oregonstate.edu). This prevents scripts you load from elsewhere from stealing data from your site.</p>
+        <p>It also prevents scripts in some malicious site from making requests to a different site into which you are logged in. If you log into http://mybank.com and later visit http://evilpage.com while your sessions is still active at http://mybank.com it prevents scripts from http://evilpage.com from making requests to http://mybank.com on your behalf.</p>
+        <p>This also limits what data you can request from other sites. You cannot make Ajax requests to other domains unless they explicitly allow it. This can be a major problem if you want to display information from Google Finance but they don't allow Ajax requests from other domains.</p>
+        <h3>Access to Secret Things</h3>
+        <p>In a similar vein to not wanting to expose API keys, you may want to make requests to services you simply don't want clients to access. Things like databases that have addresses and billing info for other clients of your site. Making the call from the server means that you can make other services you rely on be more secure by limiting access to only calls made from your server.</p>
+        <p>In addition to these reasons there are lots of other reasons to make server side calls, things like convenience or if you need to do complex processing of data before it is sent of to the client. But the security and SOP reasons listed above are the main reasons.</p>
+      </section>
+      <section>
+        <h2>The Request Library</h2>
+        <p>To make HTTP requests we will be using the Request library which is a module made for Node.js. You can get it by running <code>npm install request --save</code>.</p>
+        <p>As a warning, code is about to get a good bit more complex and difficult to follow than you may be used to. Fortunately it is stuff you are used to, making HTTP calls and showing the data, just like in Ajax, but it is going to be less pretty.</p>
+        <p>As usual, the require line:</p>
+        <pre><code>var request = require('request');</code></pre>
+        <p>Nothing new or exciting here. Not even any sort of required configuration, so we got that going for us right? So lets start at looking at the simplest request we can reasonably make. Here is an example for the Request documentation:</p>
+        <pre><code>var request = require('request');
+request('http://www.google.com', function (error, response, body) {
+  if (!error &amp;&amp; response.statusCode == 200) {
+    console.log(body) // Show the HTML for the Google homepage.
+  }
+})</code></pre>
+        <p>This makes a GET request to <code>http://www.google.com</code>. And if there is not an error it logs the body of the response to the console. The if condition checks to see if it threw an error or if the response code is something other than 200.</p>
+        <p>This may not be the <em>best</em> way to check error handling because there are other response codes that might be valid. So I might check to make sure the response is less than 400. But the principle is sound. Check for an error and check the response code. To make it more robust you would want to have an else condition that logged the error and code to the console so that it actually gave some indication of an error when it ran into one.</p>
+        <p>The format for the request call is <code>request(options, callback)</code>. <code>options</code> is a JSON object that has the options specified for the call or just a URL if you want to make a simple GET request. There are a <em>ton</em> of options. We will look at the important ones shortly.</p>
+        <p>The <code>callback</code> is a callback function taking 3 arguments.</p>
+        <ul class="list-unstyled">
+          <li>The first is an error argument which will hold an error if one exists.</li>
+          <li>The second is the response object. This contains information like the status code and status message.</li>
+          <li>The third is the response body. Presumably this has the thing you requested in it. Maybe it is an HTML page or maybe it is a JSON encoded object. It is whatever the server responded with in the body.</li>
+        </ul>
+        <h3>Using it with Express</h3>
+        <p>So if we want to use an HTTP request to fetch data for a page we are rendering we need to start thinking more like an asynchronous programmer.</p>
+        <pre><code>app.get('/get-ex',function(req,res,next){
+  var context = {};
+  request('http://api.openweathermap.org/data/2.5/weather?q=corvallis&amp;APPID=' + credentials.owmKey, function(err, response, body){
+    if(!err &amp;&amp; response.statusCode &lt; 400){
+      context.owm = body;
+      res.render('home',context);
+    } else {
+      if(response){
+        console.log(response.statusCode);
+      }
+      next(err);
+    }
+  });
+});</code></pre>
+        <p>Now things are starting to get more serious. We have added a <code>next</code> argument to our <code>get</code> call here. Calling this will call the next function in the chain of matching handlers. In general we are not going to worry about it. The exception is if we call <code>next(err)</code>, that is, we pass it an error argument. If we do that it will call that last function in our list of handlers that has 4 arguments. The one specifically for handling errors.</p>
+        <p>Now that we are contacting 3rd party services it is possible they could mess up and throw an error so we need to be ready for that.</p>
+        <p>The other critical thing here is that we now call render from within the callback passed to request. This is absolutely critical. If we called <code>res.render</code> from the end of the <code>app.get</code> callback like we had been doing it will render the page well before we get the information back from our request. So we need to wait till the request is done. We will know it is done when it calls its callback so we can safely make the call to render from within there.</p>
+        <p>Hopefully you got comfortable with this concept when you were working with Ajax callbacks. If you tried to use data from the request outside of the callback you often had things break. This is the same idea. And it is about to get worse.</p>
+        <p>Lets look at making two different requests. A GET and a POST:</p>
+        <pre><code>app.get('/',function(req,res,next){
+  var context = {};
+  request('http://api.openweathermap.org/data/2.5/weather?q=corvallis&amp;APPID=' + credentials.owmKey, function(err, response, body){
+    if(!err &amp;&amp; response.statusCode &lt; 400){
+      context.owm = body;
+      request({
+        "url":"http://httpbin.org/post",
+        "method":"POST",
+        "headers":{
+          "Content-Type":"application/json"
+        },
+        "body":'{"foo":"bar","number":1}'
+      }, function(err, response, body){
+        if(!err &amp;&amp; response.statusCode &lt; 400){
+          context.httpbin = body;
+          res.render('home',context);
+        }else{
+          console.log(err);
+          if(response){
+            console.log(response.statusCode);
+          }
+          next(err);
+        }
+      });
+    } else {
+      console.log(err);
+      if(response){
+        console.log(response.statusCode);
+      }
+      next(err);
+    }
+  });
+});</code></pre>
+        <p>So lets look at what is going on here. The first thing is to look at where we are actually rendering the page. I happens roughly 1/2 through this block of code. The code after that is handling the potential error conditions.</p>
+        <p>Next lets count the callbacks. There are three different callbacks. The first is the callback for the <code>get</code> handler. The next is the callback we call when the first request to <code>openweathermap.com</code> is complete. The final callback will be called when the request to <code>httpbin.com</code> in that callback we render the page because we know at that point all the calls will be complete.</p>
+        <p>There are no new concepts in these callbacks. All that is happening is that we are now nesting them several layers deep so it is starting to look more intimidating and is harder to follow.</p>
+        <div>
+          <iframe id="kaltura_player" src="./Express_and_HTML_files/391241.html" width="554" height="366" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" frameborder="0"></iframe>
+        </div>
+        <h3>The POST Request</h3>
+        <p>The other thing we need to look at is the POST request.</p>
+        <pre><code>
+{
+  "url":"http://httpbin.org/post",
+  "method":"POST",
+  "headers":{
+    "Content-Type":"application/json"
+  },
+  "body":'{"foo":"bar","number":1}'
+}
+        </code></pre>
+        <p>What is different is we replaced the single URL with this JSON object. This should be fairly self explanatory. We have properties representing the url, method, additional headers and the body of the POST. We can always pass a string as the body of the POST, so we can convert things into strings and send that, as URL encoded form data (just like the format of things in the query string in a GET request), as JSON or as some other data format.</p>
+        <p>Additionally, if you care to read about them, the request library can do some handy things to help with parsing form data or automatically converting objects into JSON strings.</p>
+      </section>
+      <iframe id="kaltura_player" src="./Express_and_HTML_files/391241(1).html" width="554" height="366" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" frameborder="0"></iframe>
+      <section>
+        <h2>Activity</h2>
+        <p>Make at least two consecutive HTTP requests which get data and display that data. You could get weather data from two different cities from OpenWeatherMap or you could make requests to your own server that returns data. It does not matter, what is important is that you start nesting these asynchronous calls. As much as possible do it from scratch and not via copying and pasting. If you need to reference things like variable names that is fine, but work on getting the correct control flow with your conditionals and callback functions with as little outside help as possible. This will help you understand what is actually going on in the flow of execution.</p>
+      </section>
+      <section>
+        <h2>Review</h2>
+        <p>We are at something of a precipice at this point. We have added more and more stuff that you need to know. We have added more and more libraries. And now we are at the top of the mountain. But that is only half the journey. We need to head back down now. Next week we are going to move onto databases. They are not specifically web related, but we will want to use them to make useful things.</p>
+        <p>But there is nothing 'new' there. We will be using more asynchronous calls. We will be learning about another module by reading about documentation specific to it. You are just going to be reapplying a lot of the skills you have already been introduced to.</p>
+        <p>In once sense we are done with the basics of web programming. Conceptually there are not really any concepts specific to web development left to introduce. You have your toolbox. And I have tried to show you how to use a variety of tools. We haven't really gotten to build much of anything because we have been too busy learning about the wrenches, screwdrivers and hammers of web development.</p>
+        <p>At this point it is primarily practice that will make you a better web developer. In the final unit of the class we will talk about some important topics like security. But in terms of technical material related specifically to web development this is more or less the end.</p>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script src="./Express_and_HTML_files/jquery.min.js"></script>
+<script src="./Express_and_HTML_files/bootstrap.min.js"></script>
+
+</body></html>
