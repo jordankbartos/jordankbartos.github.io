@@ -1,0 +1,97 @@
+/*Set some variables for the color scheme. This should make changing the color
+  scheme quick and easy later, if desired*/
+:root {
+  --primary-color: #4f81c7;
+  --secondary-color: #64c4ed;
+  --tertiary-color: #f0d78c;
+  --quaternary-color: #fcfafa;
+  --very-dark-cyan: #12242b;
+  --light-blue-gray: #edf4fc;
+}
+
+
+body {
+  font-family: 'Manjari', sans-serif;
+  background-color: var(--quaternary-color);
+  text-align: center;
+  padding-top: 100px;
+  color: var(--very-dark-cyan);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+a h1 {
+  font-family:  'Manjari', sans-serif;
+}
+
+.warning {
+  width: 50%;
+  min-width: 679px;
+  margin: 0 auto;
+  height: 200px;
+  font-size: 2rem;
+}
+
+.warning h1 {
+  padding-top: 28px;
+  font-family: 'Cousine', monospace;
+}
+
+.warning h4 {
+  margin-top: 30px;
+}
+
+.construction-cone {
+  height: 100%;
+  float: left;
+}
+
+.go-back {
+	background-color: var(--primary-color);
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	display:inline-block;
+	cursor:pointer;
+	color: var(--very-dark-cyan);
+	font-size: 1.5rem;
+	padding:0px 54px 10px;
+  width: 80%;
+	text-decoration:none;
+}
+.go-back:hover {
+	background-color: var(--secondary-color);
+  color: var(--very-dark-cyan);
+}
+
+.go-back:active {
+	position:relative;
+	top:1px;
+}
+
+.attribution {
+  background-color: var(--primary-color);
+  font-size: .8rem;
+  position: absolute;
+  left: 26.5%;
+  width: 47%;
+  bottom: -10px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  border-radius: 7px;
+}
+
+.attribution a {
+  color: var(--quaternary-color);
+}
+
+.attribution a:hover {
+  color: var(--tertiary-color);
+}
