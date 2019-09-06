@@ -246,6 +246,16 @@ p {
   color: var(--very-dark-cyan);
 }
 
+.contact-content a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.contact-content a:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 /* End contact section formatting -----------------------------------------------*/
 
 /* Begin footer section formatting ------------------------------------------*/
