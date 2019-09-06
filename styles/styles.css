@@ -123,6 +123,10 @@ p {
     max-width: 284px;
     margin: auto;
   }
+
+  p {
+    font-size: 2em;
+  }
 }
 
 /* End header section formatting --------------------------------------------*/
