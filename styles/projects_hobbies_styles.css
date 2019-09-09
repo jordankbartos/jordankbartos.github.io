@@ -1,14 +1,14 @@
 /*Set some variables for the color scheme. This should make changing the color
   scheme quick and easy later, if desired*/
 :root {
-  --primary-color: #4f81c7;
-  --secondary-color: #64c4ed;
-  --tertiary-color: #f0d78c;
-  --quaternary-color: #fcfafa;
-  --very-dark-cyan: #12242b;
-  --light-blue-gray: #edf4fc;
+  --primary-color: #004a7c;
+  --secondary-color: #005691;
+  --tertiary-color: #e8f1f5;
+  --quaternary-color: #fafafa;
+  --text-color: #2e291a;
+  --button-background: #edf4fc;
+  --button-hover: #fff;
 }
-
 
 body {
   font-family: 'Manjari', sans-serif;
@@ -29,6 +29,7 @@ a:hover {
 
 a h1 {
   font-family:  'Manjari', sans-serif;
+  color: var(--tertiary-color);
 }
 
 .warning {
@@ -55,12 +56,13 @@ a h1 {
 
 .go-back {
 	background-color: var(--primary-color);
+  color: var(--tertiary-color);
 	-moz-border-radius:7px;
 	-webkit-border-radius:7px;
 	border-radius:7px;
 	display:inline-block;
 	cursor:pointer;
-	color: var(--very-dark-cyan);
+	color: var(--text-color);
 	font-size: 1.5rem;
 	padding:0px 54px 10px;
   width: 80%;
@@ -68,7 +70,8 @@ a h1 {
 }
 .go-back:hover {
 	background-color: var(--secondary-color);
-  color: var(--very-dark-cyan);
+  color: var(--tertiary-color);
+  color: var(--text-color);
 }
 
 .go-back:active {
@@ -89,9 +92,9 @@ a h1 {
 }
 
 .attribution a {
-  color: var(--quaternary-color);
+  color: #f1e8f7;
 }
 
 .attribution a:hover {
-  color: var(--tertiary-color);
+  color: var(--button-hover);
 }

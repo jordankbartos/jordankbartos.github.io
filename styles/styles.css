@@ -7,11 +7,11 @@ font-family: 'Cousine', monospace;
 /*Set some variables for the color scheme. This should make changing the color
   scheme quick and easy later, if desired*/
 :root {
-  --primary-color: #4f81c7;
-  --secondary-color: #64c4ed;
-  --tertiary-color: #f0d78c;
-  --quaternary-color: #fcfafa;
-  --very-dark-cyan: #12242b;
+  --primary-color: #004a7c;
+  --secondary-color: #005691;
+  --tertiary-color: #e8f1f5;
+  --quaternary-color: #fafafa;
+  --text-color: #2e291a;
   --button-background: #edf4fc;
   --button-hover: #fff;
 }
@@ -28,13 +28,19 @@ p {
   font-family: 'Nanum Myeongjo', serif;
 }
 
+#page-body h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 50px;
+}
+
 
 /* Header section formatting ----------------------------------------------*/
 #header{
   overflow: hidden;
   position: relative;
   background-color: var(--tertiary-color);
-  color: var(--very-dark-cyan);
+  color: var(--text-color);
   width: 100%;
   margin: 0;
   padding-top: 70px;
@@ -50,7 +56,6 @@ p {
   right: -70%;
   top: -30%;
   border-radius: 100px;
-
 }
 
 .fade-block-2 {
@@ -122,10 +127,19 @@ p {
   .introduction h2 {
     max-width: 284px;
     margin: auto;
+    font-size: 3rem;
   }
 
   p {
     font-size: 2em;
+  }
+
+  .about-me {
+    font-weight: bold;
+  }
+
+  .fade-block-1 {
+    right: -70%;
   }
 }
 
@@ -135,7 +149,7 @@ p {
   text-align: center;
   width: 100%;
   background-color: var(--quaternary-color);
-  padding: 30px;
+  padding: 60px 30px;
 }
 
 .body-item {
@@ -152,7 +166,7 @@ p {
 .body-item h5 {
   font-family: 'Manjari', sans-serif;
   font-size: 2rem;
-  color: var(--very-dark-cyan);
+  color: var(--text-color);
   margin:15px auto;
 }
 
@@ -164,7 +178,7 @@ p {
 
 #page-body a {
   text-decoration: none;
-  color: var(--very-dark-cyan);
+  color: var(--text-color);
 }
 
 #page-body .card:hover {
@@ -187,7 +201,7 @@ p {
   background-color: var(--tertiary-color);
   overflow: hidden;
   text-align: center;
-  color: var(--very-dark-cyan);
+  color: var(--text-color);
 }
 
 .contact-background-element-1 {
@@ -235,15 +249,15 @@ p {
   margin: 10px;
   width: 500px;
   background-color: var(--button-background);
-  color: var(--very-dark-cyan);
+  color: var(--text-color);
   font-family: 'Nanum Myeongjo', serif;
-  border-color: var(--very-dark-cyan);
+  border-color: var(--text-color);
   font-size: 2rem;
 }
 
 .contact-content button:hover {
   background-color: #fff;
-  color: var(--very-dark-cyan);
+  color: var(--text-color);
 }
 
 .contact-content a {
@@ -262,7 +276,7 @@ p {
 #footer {
   line-height: 1;
   background-color: var(--quaternary-color);
-  color: var(--very-dark-cyan);
+  color: var(--text-color);
   font-size: .8rem;
   text-align: center;
   width: 100%;
