@@ -60,18 +60,20 @@ a h1 {
 	-moz-border-radius:7px;
 	-webkit-border-radius:7px;
 	border-radius:7px;
-	display:inline-block;
+	display: block;
 	cursor:pointer;
-	color: var(--text-color);
 	font-size: 1.5rem;
-	padding:0px 54px 10px;
+	padding: 0px 54px 10px;
   width: 80%;
-	text-decoration:none;
+	text-decoration: none;
+  text-align: center;
+  margin: 30px auto 30px auto;
 }
+
 .go-back:hover {
 	background-color: var(--secondary-color);
   color: var(--tertiary-color);
-  color: var(--text-color);
+  text-decoration: none;
 }
 
 .go-back:active {
@@ -97,4 +99,5 @@ a h1 {
 
 .attribution a:hover {
   color: var(--button-hover);
+  text-decoration: none;
 }
