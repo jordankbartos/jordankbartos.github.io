@@ -1,0 +1,130 @@
+
+:root {
+  --primary-color: #004a7c;
+  --secondary-color: #005691;
+  --tertiary-color: #e8f1f5;
+  --quaternary-color: #fafafa;
+  --text-color: #2e291a;
+  --button-background: #edf4fc;
+  --button-hover: #fff;
+}
+
+body {
+  background-color: var(--secondary-color);
+}
+
+h1 {
+  font-family: 'Cousine', monospace;
+}
+
+h2 {
+  font-family: 'Manjari', sans-serif;
+}
+
+p {
+  font-family: 'Nanum Myeongjo', serif;
+  line-height: 1.5;
+}
+
+#header {
+  text-align: center;
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+  padding: 70px 0;
+  height: 385px;
+}
+
+#header h1 {
+  font-size: 5rem;
+}
+
+.thumbnail-container {
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  top: 20px;
+  width: 300px;
+  height: 300px;
+}
+
+.header-thumbnail {
+  width: 300px;
+  height: 300px;
+}
+
+#middle {
+  background-color: var(--primary-color);
+  padding: 60px 0;
+}
+
+#middle .project {
+  background-color: var(--tertiary-color);
+  border-radius: 10px;
+  padding-top: 8px;
+  border-style: solid;
+}
+
+.first-project {
+  margin-top: 130px;
+}
+
+.project .project-name {
+  text-align: center;
+}
+
+.img-container {
+  background-color: var(--tertiary-color);
+}
+
+.project-img {
+  object-fit: contain;
+}
+
+.project .project-link {
+  color: var(--tertiary-color);
+  border-color: var(--tertiary-color);
+  width: 200px;
+  display: inline-block;
+  background-color: var(--primary-color);
+}
+
+/*
+.project-info {
+  text-align: center;
+}
+
+.project-info p {
+  text-align: left;
+}
+*/
+
+@media (max-width:990px){
+  .project-img {
+    margin-bottom: 15px;
+  }
+
+  .project-info p {
+    font-size: 2rem;
+  }
+
+  .project-name {
+    font-size: 4rem;
+  }
+
+  .project .project-link {
+    width: 99%;
+    height: 99px;
+    font-size: 2rem;
+  }
+
+}
+
+.project-link {
+  margin: 5px 8px;
+}
+
+.project .project-link:hover {
+  background-color: #fff;
+  border-color: var(--primary-color);
+  color: var(--text-color);
+}
