@@ -63,9 +63,6 @@ a h1 {
   max-height: 300px;
 }
 
-.warning-text {
-}
-
 .go-back {
 	background-color: var(--primary-color);
   color: var(--tertiary-color);
