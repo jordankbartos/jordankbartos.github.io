@@ -14,16 +14,17 @@ body {
 }
 
 h1 {
-  font-family: 'Cousine', monospace;
+  font-family: 'Major Mono Display', monospace;
 }
 
 h2 {
-  font-family: 'Manjari', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 p {
-  font-family: 'Nanum Myeongjo', serif;
-  line-height: 1.5;
+  font-family: 'Merriweather', serif;
+  line-height: 1.3;
+  text-align: left;
 }
 
 #header {
@@ -36,6 +37,7 @@ p {
 
 #header h1 {
   font-size: 5rem;
+  font-weight: bold;
 }
 
 .thumbnail-container {
@@ -58,12 +60,14 @@ p {
 }
 
 #middle .project {
-  background-color: var(--tertiary-color);
+  background-color: #eeeeee;
   border-radius: 10px;
   padding-top: 8px;
   border-style: solid;
   max-width: 550px;
   margin: 20px auto;
+  text-align: center;
+  height: 700px;
 }
 
 @media (max-width: 1200px) {
@@ -77,11 +81,14 @@ p {
 }
 
 .project .project-name {
+  margin: 12px auto;
   text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 .img-container {
-  background-color: var(--tertiary-color);
+  background-color: #eeeeee;
 }
 
 .project-img {
@@ -89,20 +96,9 @@ p {
 }
 
 .project .project-link-container {
-  display: inline-block;
-  margin: 0 auto;
-  width: 200px;
+  position: relative;
 }
 
-.project .project-link {
-  color: var(--tertiary-color);
-  border-color: var(--tertiary-color);
-  width: 200px;
-  background-color: var(--primary-color);
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 
 /*
@@ -121,7 +117,7 @@ p {
   }
 
   .project-info p {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .project-name {
@@ -129,20 +125,31 @@ p {
   }
 
   .project .project-link {
-    width: 99%;
-    height: 99px;
+
     font-size: 2rem;
   }
 
   #middle .project {
+    position: relative;
     width: 100%;
     max-width: 990px;
+    height: 1100px;
   }
 
 }
 
-.project-link {
-  margin: 5px 8px;
+.card-bottom {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  clear: both;
+  left: 0;
+}
+
+.project .project-link {
+    color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+    background-color: var(--primary-color);
 }
 
 .project .project-link:hover {

@@ -21,18 +21,13 @@ font-family: 'Cousine', monospace;
 
 
 h2 {
-  font-family: 'Manjari', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 p {
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Merriweather', serif;
 }
 
-#page-body h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  padding: 50px;
-}
 
 
 /* Header section formatting ----------------------------------------------*/
@@ -70,11 +65,18 @@ p {
 }
 
 .hi-my-name-is {
-  font-family: 'Cousine', monospace;
+  font-family: 'Major Mono Display', monospace;
+  font-weight: bold;
   color: var(--primary-color);
   font-size: 5.5rem;
   margin: 15px auto;
   line-height: .90;
+}
+
+@media (max-width: 990px) {
+  .hi-my-name-is {
+    font-size: 6.5rem;
+  }
 }
 
 .header-contents{
@@ -131,7 +133,11 @@ p {
   }
 
   p {
-    font-size: 2em;
+    font-size: 1.5rem;
+  }
+
+  h5 {
+    font-size: 3rem;
   }
 
   .about-me {
@@ -144,13 +150,29 @@ p {
   }
 }
 
+@media (max-width:1200px) {
+  @media (min-width: 990px) {
+    .bio-img {
+      position: relative;
+      left: 75px;
+    }
+  }
+}
+
 /* End header section formatting --------------------------------------------*/
 /* Begin body section formatting --------------------------------------------*/
 #page-body {
+  font-family: 'Merriweather', serif;
   text-align: center;
   width: 100%;
   background-color: var(--quaternary-color);
   padding: 60px 30px;
+}
+
+#page-body h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 50px;
 }
 
 .body-item {
@@ -165,8 +187,8 @@ p {
 }
 
 .body-item h5 {
-  font-family: 'Manjari', sans-serif;
-  font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
   color: var(--text-color);
   margin:15px auto;
 }
@@ -251,7 +273,7 @@ p {
   width: 500px;
   background-color: var(--button-background);
   color: var(--text-color);
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Merriweather', serif;
   border-color: var(--text-color);
   font-size: 2rem;
 }

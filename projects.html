@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="styles/projects_styles.css" />
   <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-  <link href="https://fonts.googleapis.com/css?family=Cousine:700|Manjari|Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Merriweather|Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/deb6ec8150.js"></script>
   <title>Jordan Bartos</title>
@@ -13,8 +13,8 @@
 <body>
 
   <div id="header">
-    <h1>Projects</h1>
-    <h2>A list of side projects I built</h2>
+    <h1>projects</h1>
+    <h2>A sampling of things I've created<h2>
     <div class="thumbnail-container">
       <img src="images/coding-projects.png" alt="Coding Thumbnail" class="header-thumbnail" />
     </div>
@@ -25,71 +25,95 @@
       <div class="row first-project">
 
         <div class="project card col-lg-6">
-          <div class="col-lg-12">
-            <img src="images/website-thumbnail.png" alt="thumbnail of my website" class="card-img-top project-img" />
-            <div class="project-info card-body">
-              <h2 class="project-name card-title">This website</h2>
-              <p class="project-description card-text">
-                I created this website in and around September of 2019. It is a static HTML and CSS website built with Bootstrap to help make it responsive. When I find the time, I plan to do a lot with this website. I will re-write it as a dynamic website
-                with its data hosted in a SQL database. I would especially like to add a page with visualizations of data structures and algorithms topics to both reinforce and display my knowledge/skills in these areas.
-              </p>
-              <div class="project-link-container">
-                <a class="btn btn-primary project-link" href="https://github.com/jordankbartos/jordankbartos.github.io" target="_blank">See the code on GitHub</a>
+          <h2 class="project-name card-title">This website</h2>
+          <img src="images/website-thumbnail.png" alt="thumbnail of my website" class="card-img-top project-img" />
+          <div class="project-info card-body">
+            <p class="project-description card-text">
+              I created this website in and around September of 2019. It is a static HTML and CSS website built with Bootstrap to help make it responsive. When I find the time, I plan to do a lot with this website. I will re-write it as a dynamic website
+              with its data hosted in a SQL database. I would especially like to add a page with visualizations of data structures and algorithms topics to both reinforce and display my knowledge/skills in these areas.
+            </p>
+            <div class="card-bottom" >
+              <div class="btn-group project-link-container align-bottom" role="group">
+                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/jordankbartos.github.io" target="_blank">See the code on GitHub</a>
               </div>
             </div>
           </div>
         </div>
 
         <div class="project card col-lg-6">
-          <div class="col-lg-12">
-
-            <img src="images/PokerCalc-thumbnail.png" alt="thumbnail of PokerCalc" class="card-img-top project-img" />
-            <div class="project-info card-body">
-              <h2 class="project-name card-title">PokerCalc</h2>
-              <p class="project-description card-text">
-                Some friends and I play a very low-stakes game of Poker every Monday night. Only, we don't usually end the night when someone wins all of the chips. We almost always call it a night well before then. Sometimes this leaves us with a tricky
-                puzzle to solve: What payments should be made to even out the winners and the less-fortunate players? PokerCalc solves this problem. It formulates the problem as a graph where the value of each node is equal to the amount owed by or owed to
-                the player. Then, a greedy algorithm adds edges to the graph until it is balanced.
-              </p>
-              <div class="project-link-container">
-                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/PokerCalc" target="_blank">See the code on GitHub</a>
-              </div>
-              <div class="project-link-container">
-                <a class="btn btn-outline-primary project-link" href="https://repl.it/@jonnydmobile/PokerCalc" target="_blank">Try it on repl.it</a>
+          <h2 class="project-name card-title">PokerCalc</h2>
+          <img src="images/PokerCalc-thumbnail.png" alt="thumbnail of PokerCalc" class="card-img-top project-img" />
+          <div class="project-info card-body">
+            <p class="project-description card-text">
+              Some friends and I play a very low-stakes game of Poker every Monday night. Only, we don't usually end the night when someone wins all of the chips. We almost always call it a night well before then. Sometimes this leaves us with a tricky
+              puzzle to solve: What payments should be made to even out the winners and the less-fortunate players? PokerCalc solves this problem. It formulates the problem as a graph where the value of each node is equal to the amount owed by or owed to
+              the player. Then, a greedy algorithm adds edges to the graph until it is balanced.
+            </p>
+            <div class="card-bottom">
+              <div class="btn-group project-link-container" role="group">
+                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/PokerCalc" target="_blank">GitHub</a>
+                <a class="btn btn-outline-primary project-link" href="https://repl.it/@jonnydmobile/PokerCalc" target="_blank">repl.it</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+      <div class="row">
 
+        <div class="project card col-lg-6">
+          <h2 class="project-name card-title">Rewind Revitalize</h2>
+          <img src="images/Rewind-Revitalize-thumbnail.png" alt="Rewind Revitalize thumbnail" class="card-img-top project-img" />
+          <div class="project-info card-body">
+            <p class="project-description card-text">
+              Winner of the Oregon State University Hackathon Club's Winter 2018 BeaverHacks hackathon! Two other students and I created this program after our first two terms in the postbaccalaureate program. It is a C<sup>++</sup> mindful journaling
+              program with user accounts and encrypted user data (so saved data is not human-readable). Although we entered in a category for new students, we were astonished to find that we won first place overall!
+            </p>
+            <div class="card-bottom">
+              <div class="btn-group project-link-container" role="group">
+                <a class="btn btn-outline-primary project-link" href="https://github.com/jkbartos/rewind-revitalize" target="_blank">GitHub</a>
+                <a class="btn btn-outline-primary project-link" href="https://osuwinter18.devpost.com/submissions" target="_blank">DevPost</a>
+                <a class="btn btn-outline-primary project-link" href="https://repl.it/@jonnydmobile/PokerCalc" target="_blank">repl.it</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="project row">
-        <img src="images/Rewind-Revitalize-thumbnail.png" alt="Rewind Revitalize thumbnail" class="card-img-top project-img" />
-        <div class="project-info col-lg-8">
-          <h2 class="project-name">Rewind Revitalize</h2>
-          <p class="project-description">
-            Winner of the Oregon State University Hackathon Club's Winter 2018 BeaverHacks hackathon! Two other students and I created this program after our first two terms in the postbaccalaureate program. It is a C<sup>++</sup> mindful journaling
-            program with user accounts and encrypted user data (so saved data is not human-readable). Although we entered in a category for new students, we were astonished to find that we won first place overall!
-          </p>
-          <a class="btn btn-outline-primary project-link" href="https://github.com/jkbartos/rewind-revitalize" target="_blank">GitHub</a>
-          <a class="btn btn-outline-primary project-link" href="https://osuwinter18.devpost.com/submissions" target="_blank">Hackathon DevPost</a>
-          <a class="btn btn-outline-primary project-link" href="https://repl.it/@jonnydmobile/PokerCalc" target="_blank">Try it on repl.it</a>
+        <div class="project card col-lg-6">
+          <h2 class="project-name card-title">ComplimentorBot</h2>
+          <img src="images/InsultinatorBot-thumbnail.png" alt="InsultinatorBot thumbnail" class="card-img-top project-img" />
+          <div class="project-info card-body">
+            <p class="project-description card-text">
+              This is a silly uplifting slackbot I made because... well because I wanted to make a slackbot. Upon starting up, this slack-bot initializes its dictionary from three txt files that are included with the bot. Then, it loads the user handles of every user in the slack workspace. When it is issued the command, ComplimentorBot generates a random compliment targeted at a random workspace member or the person indicated.
+            </p>
+            <div class="card-bottom">
+              <div class="btn-group project-link-container" role="group">
+                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/InsultinatorBot" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="project row">
-        <div class="img-container col-lg-4">
-          <img src="" alt="" class="project-img" />
-        </div>
-        <div class="project-info col-lg-8">
-          <h2 class="project-name">Placeholder</h2>
-          <p class="project-description">
-          </p>
-          <a class="btn btn-outline-primary project-link" href="" target="_blank"> </a>
-        </div>
-      </div>
+      <div class="row">
 
+        <div class="project card col-lg-6">
+          <h2 class="project-name card-title">Soil Moisture Sensor</h2>
+          <img src="images/MoistureSensor.png" alt="soil moisture sensor thumbnail" class="card-img-top project-img" />
+          <div class="project-info card-body">
+            <p class="project-description card-text">
+              I built this soil-moisture sensor as a side-project in the Summer following my first three quarters in Oregon State University's post-baccalaureate computer science program. It was one of the first hands-on projects I undertook in which I could see the actual results of my code (and my arduino build) in action afterwards. Plus I was always forgetting to water my house plants. This helped save my poor neglected house plants from a slow and thirsty demise.
+            </p>
+            <div class="card-bottom">
+              <div class="btn-group project-link-container" role="group">
+                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/soil-moisture-sensor" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
 
     </div>
   </div>
