@@ -6,7 +6,7 @@
   --quaternary-color: #fafafa;
   --text-color: #2e291a;
   --button-background: #edf4fc;
-  --button-hover: #fff;
+  --button-hover: #096fb5;
 }
 
 body {
@@ -37,7 +37,8 @@ p {
 
 #header h1 {
   font-size: 5rem;
-  font-weight: bold;
+  font-weight: 1200;
+  color: var(--text-color);
 }
 
 .thumbnail-container {
@@ -59,21 +60,27 @@ p {
   padding: 60px 0;
 }
 
+#middle .middle-content {
+  width: 80%;
+  margin: 130px auto 0;
+}
+
+@media (max-width: 992px) {
+  #middle .middle-content {
+    width: 100%;
+  }
+}
+
 #middle .project {
   background-color: #eeeeee;
+  max-width: 45%;
+  height: 600px;
   border-radius: 10px;
   padding-top: 8px;
   border-style: solid;
-  max-width: 550px;
   margin: 20px auto;
   text-align: center;
-  height: 700px;
-}
-
-@media (max-width: 1200px) {
-  #middle .project {
-    max-width: 460px
-  }
+  box-shadow: 7px 7px 15px #000;
 }
 
 .first-project {
@@ -83,7 +90,6 @@ p {
 .project .project-name {
   margin: 12px auto;
   text-align: center;
-  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -93,25 +99,18 @@ p {
 
 .project-img {
   object-fit: contain;
+  margin-top: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000;
+  border-radius: 3px;
 }
 
 .project .project-link-container {
   position: relative;
 }
 
-
-
-/*
-.project-info {
-  text-align: center;
-}
-
-.project-info p {
-  text-align: left;
-}
-*/
-
-@media (max-width:990px){
+@media (max-width:992px){
   .project-img {
     margin-bottom: 15px;
   }
@@ -124,18 +123,23 @@ p {
     font-size: 4rem;
   }
 
-  .project .project-link {
-
-    font-size: 2rem;
+  .project h2 {
+    font-size: 3rem;
   }
 
   #middle .project {
     position: relative;
-    width: 100%;
-    max-width: 990px;
-    height: 1100px;
+    height: 700px;
+    margin-top: 50px;
+    max-width: 100%;
   }
 
+}
+
+@media (max-width:768px) {
+  #middle .project {
+    height: 800px;
+  }
 }
 
 .card-bottom {
@@ -152,8 +156,44 @@ p {
     background-color: var(--primary-color);
 }
 
+
+@media (max-width: 992px) {
+  .project .project-link {
+      font-size: 1.5rem;
+  }
+}
+
 .project .project-link:hover {
-  background-color: #fff;
-  border-color: var(--primary-color);
-  color: var(--text-color);
+  background-color: var(--button-hover);
+  border-color: var(--tertiary-color);
+}
+
+.icon {
+  margin-right: .5rem;
+}
+
+#footer {
+  padding: 15px;
+  text-align: center;
+}
+
+#footer .go-back {
+  background-color: var(--button-hover);
+  color: var(--tertiary-color);
+  border-color: var(--tertiary-color);
+  width: 30%;
+  font-size: 1.5rem;
+}
+
+#footer .go-back:hover {
+  background-color: var(--primary-color);
+  border-color: var(--tertiary-color);
+}
+
+.copyright p {
+  font-size: .7rem;
+  color: var(--primary-color);
+  text-align: center;
+  vertical-align: middle;
+  margin: 15px auto 0;
 }

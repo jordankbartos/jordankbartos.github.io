@@ -7,7 +7,7 @@
   <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
   <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Merriweather|Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/deb6ec8150.js"></script>
+  <script src="https://kit.fontawesome.com/deb6ec8150.js" crossorigin="anonymous"></script>
   <title>Jordan Bartos</title>
 </head>
 <body>
@@ -22,9 +22,9 @@
 
   <div id="middle">
     <div class="container">
-      <div class="row first-project">
+      <div class="row first-project middle-content">
 
-        <div class="project card col-lg-6">
+        <div class="project card col-lg-6 col-md-12">
           <h2 class="project-name card-title">This website</h2>
           <img src="images/website-thumbnail.png" alt="thumbnail of my website" class="card-img-top project-img" />
           <div class="project-info card-body">
@@ -34,34 +34,29 @@
             </p>
             <div class="card-bottom" >
               <div class="btn-group project-link-container align-bottom" role="group">
-                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/jordankbartos.github.io" target="_blank">See the code on GitHub</a>
+                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/jordankbartos.github.io" target="_blank"><i class="fab fa-github icon" aria-hidden="true"></i>GitHub</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="project card col-lg-6">
+        <div class="project card col-lg-6 col-md-12">
           <h2 class="project-name card-title">PokerCalc</h2>
           <img src="images/PokerCalc-thumbnail.png" alt="thumbnail of PokerCalc" class="card-img-top project-img" />
           <div class="project-info card-body">
             <p class="project-description card-text">
-              Some friends and I play a very low-stakes game of Poker every Monday night. Only, we don't usually end the night when someone wins all of the chips. We almost always call it a night well before then. Sometimes this leaves us with a tricky
-              puzzle to solve: What payments should be made to even out the winners and the less-fortunate players? PokerCalc solves this problem. It formulates the problem as a graph where the value of each node is equal to the amount owed by or owed to
-              the player. Then, a greedy algorithm adds edges to the graph until it is balanced.
+              I play a weekly game of $1-buy-in poker with some friends, but we rarely end the game with nice even amounts to transfer. So how to settle the debts with the fewest possible number of transfers? PokerCalc formulates the problem as a graph and solves it with a greedy algorithm.
             </p>
             <div class="card-bottom">
               <div class="btn-group project-link-container" role="group">
-                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/PokerCalc" target="_blank">GitHub</a>
-                <a class="btn btn-outline-primary project-link" href="https://repl.it/@jonnydmobile/PokerCalc" target="_blank">repl.it</a>
+                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/PokerCalc" target="_blank"><i class="fab fa-github icon" aria-hidden="true"></i>GitHub</a>
+                <a class="btn btn-outline-primary project-link" href="https://repl.it/@jonnydmobile/PokerCalc" target="_blank"><i class="fas fa-play-circle icon"></i>repl.it</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-
-        <div class="project card col-lg-6">
+        <div class="project card col-lg-6 col-md-12">
           <h2 class="project-name card-title">Rewind Revitalize</h2>
           <img src="images/Rewind-Revitalize-thumbnail.png" alt="Rewind Revitalize thumbnail" class="card-img-top project-img" />
           <div class="project-info card-body">
@@ -71,33 +66,31 @@
             </p>
             <div class="card-bottom">
               <div class="btn-group project-link-container" role="group">
-                <a class="btn btn-outline-primary project-link" href="https://github.com/jkbartos/rewind-revitalize" target="_blank">GitHub</a>
-                <a class="btn btn-outline-primary project-link" href="https://osuwinter18.devpost.com/submissions" target="_blank">DevPost</a>
-                <a class="btn btn-outline-primary project-link" href="https://repl.it/@jonnydmobile/PokerCalc" target="_blank">repl.it</a>
+                <a class="btn btn-outline-primary project-link" href="https://github.com/jkbartos/rewind-revitalize" target="_blank"><i class="fab fa-github icon" aria-hidden="true"></i>GitHub</a>
+                <a class="btn btn-outline-primary project-link" href="https://osuwinter18.devpost.com/submissions" target="_blank"><i class="fas fa-comments icon"></i>DevPost</a>
+                <a class="btn btn-outline-primary project-link" href="https://repl.it/@jonnydmobile/PokerCalc" target="_blank"><i class="fas fa-play-circle icon"></i>repl.it</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="project card col-lg-6">
+        <div class="project card col-lg-6 col-md-12">
           <h2 class="project-name card-title">ComplimentorBot</h2>
-          <img src="images/InsultinatorBot-thumbnail.png" alt="InsultinatorBot thumbnail" class="card-img-top project-img" />
+          <img src="images/ComplimentorBot-thumbnail.png" alt="ComplimentorBot thumbnail" class="card-img-top project-img" />
           <div class="project-info card-body">
             <p class="project-description card-text">
               This is a silly uplifting slackbot I made because... well because I wanted to make a slackbot. Upon starting up, this slack-bot initializes its dictionary from three txt files that are included with the bot. Then, it loads the user handles of every user in the slack workspace. When it is issued the command, ComplimentorBot generates a random compliment targeted at a random workspace member or the person indicated.
             </p>
             <div class="card-bottom">
               <div class="btn-group project-link-container" role="group">
-                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/InsultinatorBot" target="_blank">GitHub</a>
+                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/ComplimentorBot" target="_blank"><i class="fab fa-github icon" aria-hidden="true"></i>GitHub</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
 
-        <div class="project card col-lg-6">
+        <div class="project card col-lg-6 col-md-12">
           <h2 class="project-name card-title">Soil Moisture Sensor</h2>
           <img src="images/MoistureSensor.png" alt="soil moisture sensor thumbnail" class="card-img-top project-img" />
           <div class="project-info card-body">
@@ -106,7 +99,7 @@
             </p>
             <div class="card-bottom">
               <div class="btn-group project-link-container" role="group">
-                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/soil-moisture-sensor" target="_blank">GitHub</a>
+                <a class="btn btn-outline-primary project-link" href="https://github.com/jordankbartos/soil-moisture-sensor" target="_blank"><i class="fab fa-github icon" aria-hidden="true"></i>GitHub</a>
               </div>
             </div>
           </div>
@@ -118,6 +111,11 @@
     </div>
   </div>
   <div id="footer">
-
+    <a class="btn btn-primary go-back" href="index.html">Back to Main</a>
+    <div class="copyright">
+      <p>
+         © Jordan Bartos 2019
+      </p>
+    </div>
   </div>
 </body></html>

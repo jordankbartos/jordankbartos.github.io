@@ -175,6 +175,11 @@ p {
   padding: 50px;
 }
 
+.body-content {
+  width: 65%;
+  margin: 0 auto;
+}
+
 .body-item {
   padding: 20px;
 }
